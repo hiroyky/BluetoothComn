@@ -8,10 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -93,6 +90,10 @@ public class BluetoothComn {
     public void write(String data) throws IOException {
         OutputStream ostream = socket.getOutputStream();
         ostream.write(data.getBytes());
+    }
+
+    public int readAvailable() throws IOException {
+        return socket.getInputStream().available();
     }
 
     public String read() throws IOException {
